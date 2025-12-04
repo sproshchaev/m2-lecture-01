@@ -14,7 +14,7 @@ repositories {
 dependencies {
     implementation(kotlin("stdlib")) // Стандартная библиотека Kotlin
 
-    testImplementation(kotlin("test")) // Для тестирования
+    testImplementation(kotlin("test")) // Для тестирования - всё необходимое в одной зависимости
 }
 
 // === ДЕМО-ЗАДАЧИ ДЛЯ ВЕБИНАРА ===
