@@ -1,3 +1,4 @@
+// Специфические плагины
 plugins {
     kotlin("jvm") version "1.9.0"   // Kotlin плагин
     application                     // Для запуска приложения
@@ -22,11 +23,23 @@ repositories {
     mavenCentral() // Репозиторий зависимостей
 }
 
+// Для KMP - здесь будут настройки под конкретные платформы (JVM, Android, JS)
+
+// Зависимости
 dependencies {
     implementation(kotlin("stdlib")) // Стандартная библиотека Kotlin
 
     testImplementation(kotlin("test")) // Для тестирования - всё необходимое в одной зависимости
 }
+
+// Секция для рантайма
+// runtimeOnly("...")
+
+// Обработка аннотаций
+// kapt / ksp ("...")
+
+// Инструментальные тесты Android
+// androidTestImplementation
 
 // === ДЕМО-ЗАДАЧИ ДЛЯ ВЕБИНАРА ===
 
