@@ -1,0 +1,37 @@
+
+### СТРУКТУРА ПРОЕКТА
+
+```asciidoc
+m2-lecture-01/
+├── settings.gradle.kts          # Настройки проекта
+├── build.gradle.kts             # Конфигурация сборки
+├── gradle.properties           # Свойства Gradle
+├── gradlew, gradlew.bat        # Gradle Wrapper
+│
+├── src/
+│   ├── main/kotlin/Main.kt     # Основной код
+│   └── test/kotlin/ExampleTest.kt # Тесты
+│
+└── .gitignore
+```
+
+### КОМАНДЫ ДЛЯ ДЕМО
+##### Из корня проекта (m2-lecture-01):
+
+##### 1. Простые задачи
+./gradlew hello  
+./gradlew intro  
+
+##### 2. Запуск тестов
+./gradlew test  
+
+##### 3. Сборка проекта 
+./gradlew build  
+
+##### 4. Запуск приложения (*)
+./gradlew run  
+
+##### 5. Полезные команды
+./gradlew tasks                  # Все доступные задачи  
+./gradlew dependencies           # Зависимости проекта  
+./gradlew properties             # Свойства Gradle  
