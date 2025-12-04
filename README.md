@@ -35,6 +35,9 @@ m2-lecture-01/
 ##### 5. Зависимости между задачами
 ./gradlew buildReport
 
+# 6. Полный аудит
+./gradlew projectAudit
+
 ##### Полезные команды
 ./gradlew tasks                  # Все доступные задачи  
 ./gradlew dependencies           # Зависимости проекта  
