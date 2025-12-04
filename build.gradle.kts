@@ -4,6 +4,17 @@ plugins {
     // jacoco                       // Плагин для покрытия кода
 }
 
+// Подключение плагинов (вариант 2, (устаревший)
+//buildscript {
+//    repositories {
+//        gradlePluginPortal()
+//    }
+//    dependencies {
+//        classpath("com.example:custom-plugin:1.0")
+//    }
+//}
+//apply(plugin = "com.example.custom-plugin")
+
 group = "ru.otus"
 version = "1.0-SNAPSHOT"
 
