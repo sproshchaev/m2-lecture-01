@@ -1,6 +1,7 @@
 plugins {
-    kotlin("jvm") version "1.9.0" // Kotlin плагин
+    kotlin("jvm") version "1.9.0"   // Kotlin плагин
     application                     // Для запуска приложения
+    // jacoco                       // Плагин для покрытия кода
 }
 
 group = "ru.otus"
