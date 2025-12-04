@@ -21,6 +21,7 @@ m2-lecture-01/
 ##### 1. Простые задачи
 ./gradlew hello  
 ./gradlew intro  
+./gradlew projectInfo
 
 ##### 2. Запуск тестов
 ./gradlew test  

@@ -62,3 +62,19 @@ application {
 kotlin {
     jvmToolchain(17) // Используем Java 17
 }
+
+// 6. Показывает информацию о проекте
+tasks.register("projectInfo") {
+    group = "help"
+    description = "Показывает информацию о проекте"
+
+    doFirst {
+        println("=== Информация о проекте ===")
+    }
+
+    doLast {
+        println("Имя: $rootProject.name")
+        println("Версия: $version")
+        println("Каталог сборки: ${layout.buildDirectory.get()}")
+    }
+}
