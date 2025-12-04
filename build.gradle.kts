@@ -78,3 +78,33 @@ tasks.register("projectInfo") {
         println("Каталог сборки: ${layout.buildDirectory.get()}")
     }
 }
+
+// В build.gradle.kts
+tasks.register("prepare") {
+    doLast {
+        println("📦 Подготовка окружения...")
+    }
+}
+
+tasks.register("compileKotlinCustom") {
+    dependsOn("prepare") // Зависит от prepare
+    doLast {
+        println("🔧 Компиляция Kotlin...")
+    }
+}
+
+tasks.register("runTests") {
+    dependsOn("compileKotlinCustom") // Зависит от компиляции
+    mustRunAfter("compileKotlinCustom") // И строго после
+    doLast {
+        println("🧪 Запуск тестов...")
+    }
+}
+
+tasks.register("buildReport") {
+    dependsOn("runTests") // Зависит от тестов
+    shouldRunAfter("runTests") // Желательно после
+    doLast {
+        println("📊 Генерация отчёта...")
+    }
+}

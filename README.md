@@ -32,7 +32,10 @@ m2-lecture-01/
 ##### 4. Запуск приложения (*)
 ./gradlew run  
 
-##### 5. Полезные команды
+##### 5. Зависимости между задачами
+./gradlew buildReport
+
+##### Полезные команды
 ./gradlew tasks                  # Все доступные задачи  
 ./gradlew dependencies           # Зависимости проекта  
 ./gradlew properties             # Свойства Gradle  
