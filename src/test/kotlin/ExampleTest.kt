@@ -6,6 +6,9 @@ import kotlin.test.assertEquals
 class MathTests {
     @Test
     fun testSum() {
+        // A (подготовка)
+        // A (выполнение)
+        // A (проверка)
         assertEquals(5, calculate(2, 3))
     }
 

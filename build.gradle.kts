@@ -1,34 +1,68 @@
 // Специфические плагины
+// источники плагинов:
+// - Gradle Plugin Portal -  основные плагины
+// - Maven Central - Java/Kotlin
+// - Google Maven - Android-плагины
+// - Кастомные репозитории - внутри компании
+
+// Типы идентификаторов плагинов:
+// - короткие (core plugins): java, application, kotlin("jvm")
+// - полные (community plugins): io.qameta.allure, com.github...
+// - локальные: id("my-plugin")
 plugins {
     kotlin("jvm") version "1.9.0"   // Kotlin плагин
     application                     // Для запуска приложения
     // jacoco                       // Плагин для покрытия кода
+    // id("org.jetbrains.dokka") version "..." // Документация
+    // id("ogr.jetbrains.kotlin.multiplatform") version "..." // Для KMP
 }
 
 // Подключение плагинов (вариант 2, (устаревший)
-//buildscript {
+// buildscript {
 //    repositories {
 //        gradlePluginPortal()
 //    }
 //    dependencies {
 //        classpath("com.example:custom-plugin:1.0")
 //    }
-//}
-//apply(plugin = "com.example.custom-plugin")
+// }
+// apply(plugin = "com.example.custom-plugin")
 
 group = "ru.otus"
 version = "1.0-SNAPSHOT"
 
+// Области видимости репозиториев
+// Только для загрузки плагинов
+// pluginManagement {
+//    repositories {
+//        gradlePluginPortal()
+//        mavenCentral()
+//    }
+// }
+
+// Для всех проектов
+// allprojects {
+//    repositories {
+//        mavenCentral()
+//    }
+// }
+
+// Для конкретного проекта
 repositories {
     mavenCentral() // Репозиторий зависимостей
 }
 
 // Для KMP - здесь будут настройки под конкретные платформы (JVM, Android, JS)
 
-// Зависимости
+// Зависимости на Groovy: (типизация динамическая, проверяем во время выполнения)
+// dependencies {
+//    implementation 'org.springframework:spring-core:5.3.0'
+//    testImplementation 'junit:junit:4.13'
+// }
+
+// Зависимости на KTS: (типизация статическая, проверяется при компиляции)
 dependencies {
     implementation(kotlin("stdlib")) // Стандартная библиотека Kotlin
-
     testImplementation(kotlin("test")) // Для тестирования - всё необходимое в одной зависимости
 }
 
@@ -60,10 +94,28 @@ tasks.register("intro") {
 
 // 3. Кастомная конфигурация тестов
 tasks.test {
-    useJUnitPlatform() // Используем JUnit 5
+
+    useJUnitPlatform() // Используем JUnit 5 (рекомендованной), useTestNG(), useJUnit() - версия 4
+
+    // Логирование
     testLogging {
         events("passed", "failed", "skipped")
     }
+
+    // Слушатели
+    // addTestListener(CustomTestListener())
+
+    // Системные свойства
+    // systemProperties["user.timezone"] = "UTC"
+
+    // Фильтрации
+    // include("**/*Test.class")
+    // exclude("**/*IntegrationTest.class")
+
+    // Производительность
+    // maxParallelForks = Runtime.getRuntime().availableProcessors()
+    // failFast = false
+
 }
 
 // 4. Конфигурация для запуска приложения
